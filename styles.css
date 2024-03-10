@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: rgb(248, 245, 248);
+    font-family: monospace;
+}
+
+div.wrapper {
+    width: 700px;
+    height: 500px;
+    margin-inline: auto;
+    margin-top: 100px;
+    left: 0;
+    right: 0;
+}
+
+div.editor {
+    font-size: 24px;
+    padding: 10px;
+    width: 700px;
+    height: 500px;
+    border: 2px solid rgb(184, 145, 182);
+    border-radius: 8px;
+    background-color: rgb(255, 254, 240);
+    color: rgb(142, 76, 139);
+    outline: none;
+    overflow-x: auto;
+}
+
+div.editor, div.editor * {
+    font-family: monospace;
+    box-sizing: border-box;
+    cursor: text;
+}
+
+div.editor:focus {
+    border: 2px solid rgb(142, 76, 139);
+    outline: 2px solid rgba(220, 140, 217, 0.227);
+}
+
+div.editor div.line {
+    min-height: 28px;
+    margin-bottom: 3px;
+    overflow-x: visible;
+    border-left: 2px solid rgb(242, 232, 222);
+    padding-left: 5px;
+}
+
+div.editor:focus div.line.current {
+    background-color: rgb(251, 244, 239);
+}
+
+div.editor:focus div.line.invalid {
+    /* background-color: rgb(243, 229, 229); */
+    border-color: rgb(162, 62, 62);
+}
+
+div.editor pre.tok {
+    display: inline;
+}
+
+div.editor pre[type=id] {
+    color: rgb(116, 76, 142);
+}
+
+div.editor pre[type=sym] {
+    color: rgb(123, 114, 121);
+}
+
+div.editor pre[type=str] {
+    color:rgb(76, 142, 107);
+}
+
+div.editor pre[type=num] {
+    color: rgb(144, 65, 85);
+}
+
+div.editor pre[type=hole] {
+    border-radius: 4px;
+    background-color: rgb(236, 237, 249);
+    color: rgb(81, 76, 142);
+}
+
+div.editor pre[type=kw] {
+    font-weight: bold;
+}
