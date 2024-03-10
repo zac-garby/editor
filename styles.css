@@ -19,14 +19,13 @@ div.wrapper {
 div.editor {
     font-size: 24px;
     padding: 10px;
-    width: 700px;
-    height: 500px;
     border: 2px solid rgb(184, 145, 182);
     border-radius: 8px;
     background-color: rgb(255, 254, 240);
     color: rgb(142, 76, 139);
     outline: none;
     overflow-x: auto;
+    margin-bottom: 10px;
 }
 
 div.editor, div.editor * {
@@ -46,6 +45,10 @@ div.editor div.line {
     overflow-x: visible;
     border-left: 2px solid rgb(242, 232, 222);
     padding-left: 5px;
+}
+
+div.editor div.line:last-child {
+    margin-bottom: 0;
 }
 
 div.editor:focus div.line.current {

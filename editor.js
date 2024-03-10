@@ -1,5 +1,5 @@
 class Editor {
-    constructor(elemID, tokenizer) {
+    constructor(elemID, options = {}) {
         this.root = document.getElementById(elemID)
         this.root.contentEditable = true
         this.root.spellcheck = false
@@ -13,7 +13,20 @@ class Editor {
         this.root.addEventListener("mousedown", this.onmousedown.bind(this))
         this.root.addEventListener("paste", this.onpaste.bind(this))
 
-        this.tokenizer = tokenizer
+        this.tokenizer = options.tokenizer || Editor.defaultTokenizer
+
+        this.options = {
+            singleLine: options.singleLine || false,
+            height: options.height
+        }
+
+        if (this.options.singleLine) {
+            this.root.classList.add("single-line")
+        }
+
+        if (this.options.height && !this.options.singleLine) {
+            this.root.style.height = this.options.height + "px"
+        }
 
         var firstLine = document.createElement("div")
         firstLine.className = "line"
@@ -238,13 +251,10 @@ class Editor {
 
         switch (event.key) {
             case "Enter":
-                // setTimeout(() => {
-                //     getSelection().focusNode.childNodes.forEach(el => {
-                //         if (el.tagName == "BR") {
-                //             el.remove()
-                //         }
-                //     })
-                // }, 0)
+                if (this.options.singleLine) {
+                    event.preventDefault()
+                }
+
                 break
             
             case "Backspace":
@@ -280,5 +290,9 @@ class Editor {
         }
 
         event.preventDefault()
+    }
+
+    static defaultTokenizer(line) {
+        return [{ "type": "default", "source": line }]
     }
 }

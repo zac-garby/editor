@@ -1,7 +1,15 @@
 var editor
 
 function onload() {
-    editor = new Editor('editor', tokenize)
+    singleLine = new Editor("singleLine", {
+        // tokenizer: tokenize,
+        singleLine: true
+    })
+
+    editor = new Editor('editor', {
+        tokenizer: tokenize,
+        height: 500,
+    })
 }
 
 function tokenize(line) {
