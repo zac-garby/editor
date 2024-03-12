@@ -17,11 +17,14 @@ class Editor {
 
         this.options = {
             singleLine: options.singleLine || false,
-            height: options.height
+            height: options.height,
+            tabSize: 4,
         }
 
         if (this.options.singleLine) {
             this.root.classList.add("single-line")
+        } else {
+            this.root.classList.add("multi-line")
         }
 
         if (this.options.height && !this.options.singleLine) {
@@ -119,7 +122,6 @@ class Editor {
     updateSelection() {
         if (this.currentLine == null) {
             this.sel = null
-            document.getElementById("info").textContent = "row: ?   col: ?"
             return
         }
 
@@ -158,8 +160,6 @@ class Editor {
                 break
             }
         }
-
-        document.getElementById("info").textContent = "row: " + this.sel.row + "   col: " + this.sel.col
     }
 
     retokenize(line = this.currentLine) {

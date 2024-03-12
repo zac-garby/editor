@@ -3,17 +3,25 @@
 }
 
 html {
-    background-color: rgb(248, 245, 248);
     font-family: monospace;
 }
 
 div.wrapper {
-    width: 700px;
-    height: 500px;
+    width: 600px;
     margin-inline: auto;
     margin-top: 100px;
     left: 0;
     right: 0;
+}
+
+div.board {
+    position: relative;
+    border: 2px solid rgb(184, 145, 182);
+    background-color: rgb(248, 245, 248);
+    border-radius: 8px;
+    height: 700px;
+    overflow: auto;
+    padding: 15px;
 }
 
 div.editor {
@@ -43,6 +51,9 @@ div.editor div.line {
     min-height: 28px;
     margin-bottom: 3px;
     overflow-x: visible;
+}
+
+div.editor.multi-line div.line {
     border-left: 2px solid rgb(242, 232, 222);
     padding-left: 5px;
 }
@@ -51,7 +62,7 @@ div.editor div.line:last-child {
     margin-bottom: 0;
 }
 
-div.editor:focus div.line.current {
+div.editor.multi-line:focus div.line.current {
     background-color: rgb(251, 244, 239);
 }
 

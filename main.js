@@ -2,14 +2,20 @@ var editor
 
 function onload() {
     singleLine = new Editor("singleLine", {
-        // tokenizer: tokenize,
-        singleLine: true
+        singleLine: true,
+        tabSize: -1
     })
 
     editor = new Editor('editor', {
         tokenizer: tokenize,
-        height: 500,
+        height: 400
     })
+
+    singleLine.root.style.top = "100px"
+    singleLine.root.style.left = "200px"
+
+    editor.root.style.top = "180px"
+    editor.root.style.left = "100px"
 }
 
 function tokenize(line) {
