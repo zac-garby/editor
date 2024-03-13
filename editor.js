@@ -197,24 +197,16 @@ class Editor {
                 if (this.sel.col >= col && this.sel.col <= col + tok.source.length) {
                     getSelection().setPosition(el.firstChild, this.sel.col - col)
                 }
-            } else if (head.getAttribute("type") != tok.type || head.innerHTML != tok.source) {
-                if (this.sel.col >= col && this.sel.col <= col + tok.source.length) {
-                    head.setAttribute("type", tok.type)
-                    head.textContent = tok.source
-
-                    getSelection().setPosition(head.firstChild, this.sel.col - col)
-
-                    head = head.nextSibling
-                } else {
-                    head.setAttribute("type", tok.type)
-                    head.textContent = tok.source
-                    head = head.nextSibling
-                }
             } else {
-                if (this.sel.col >= col && this.sel.col <= col + tok.source.length) {
-                    getSelection().setPosition(head.firstChild, this.sel.col - col)
-                }
+                if (head.getAttribute("type") != tok.type || head.innerHTML != tok.source) {
+                    head.setAttribute("type", tok.type)
+                    head.textContent = tok.source
 
+                    if (this.sel.col >= col && this.sel.col <= col + tok.source.length) {
+                        getSelection().setPosition(head.firstChild, this.sel.col - col)
+                    }
+                }
+                
                 head = head.nextSibling
             }
 
@@ -247,7 +239,6 @@ class Editor {
             event.keyCode === 229) {
             return
         }
-
 
         switch (event.key) {
             case "Enter":
