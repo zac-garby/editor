@@ -1,11 +1,6 @@
 var editor
 
 function onload() {
-    singleLine = new Editor("singleLine", {
-        singleLine: true,
-        tabSize: -1
-    })
-
     editor = new Editor('editor', {
         tokenizer: tokenize,
         height: 400

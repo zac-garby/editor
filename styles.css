@@ -3,7 +3,8 @@
 }
 
 html {
-    font-family: monospace;
+    color: rgb(142, 76, 139);
+    font-family: sans-serif;
 }
 
 div.wrapper {
@@ -14,26 +15,32 @@ div.wrapper {
     right: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
 div.board {
     position: relative;
     border: 2px solid rgb(184, 145, 182);
     background-color: rgb(248, 245, 248);
     border-radius: 8px;
-    height: 700px;
     overflow: auto;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 div.editor {
+    font-family: monospace;
     font-size: 24px;
-    padding: 10px;
+    padding: 5px;
     border: 2px solid rgb(184, 145, 182);
-    border-radius: 8px;
-    background-color: rgb(255, 254, 240);
+    border-radius: 4px;
     color: rgb(142, 76, 139);
+    background-color: rgb(252, 252, 247);
     outline: none;
     overflow-x: auto;
-    margin-bottom: 10px;
 }
 
 div.editor, div.editor * {
@@ -43,19 +50,15 @@ div.editor, div.editor * {
 }
 
 div.editor:focus {
-    border: 2px solid rgb(142, 76, 139);
+    border-color: rgb(142, 76, 139);
     outline: 2px solid rgba(220, 140, 217, 0.227);
+    background-color: rgb(255, 254, 240);
 }
 
 div.editor div.line {
     min-height: 28px;
     margin-bottom: 3px;
     overflow-x: visible;
-}
-
-div.editor.multi-line div.line {
-    border-left: 2px solid rgb(242, 232, 222);
-    padding-left: 5px;
 }
 
 div.editor div.line:last-child {
